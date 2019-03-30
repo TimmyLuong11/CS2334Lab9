@@ -13,8 +13,8 @@
      * This lab tests your ability to implement recursion for several functions.
      * 
      * @authors: Stephen, Mukhtar, MoSho
-     * @editer: YOUR_NAME_HERE
-     * @version DATE_HERE
+     * @editer: Timothy 
+     * @version 03/30/2019
      */
 
     /** **********************************************************************
@@ -34,7 +34,10 @@
          * This lets our recursion know when to stop.
          */
         //TODO
-
+        if(value <= 1)
+        {
+            return 1;
+        }
 
         /*
          * Here is the recursive statement. The function calls itself when the 
@@ -45,6 +48,10 @@
          * By doing this, we break up the equation n! into n! = n * (n-1)!.
          */
         //TODO
+        else
+        {
+            retrun ((value) * factorial(value-1));
+        }
 
     }
 
@@ -67,6 +74,11 @@
     public int fibonacci(int n)
     {
         //TODO
+        if(n <=1)
+        {
+            return n;
+        }
+        retrun fibonacci(n-1) + fibonacci(n-2);
     }
 
     
@@ -100,21 +112,26 @@
         public Tree(int value)
         {
     	    //TODO
+            children = new ArrayList(value);
         }
     
         public int getValue()
         {
     	    //TODO
+            return value;
         }
     
         public ArrayList<Tree> getChildren()
         {
     	    //TODO
+            return children;
+
         }
     
         public void add(Tree child)
         {
     	    //TODO
+            children.add(child)
         }
     }
     
@@ -149,9 +166,12 @@
         if (height == 1) 
         {
     	    //TODO
+           return 1; 
         }
         
     	//TODO
+        --height;
+        return Math.pow(branchingFactor, height) + nnaryTreeSize(branchingFactor, height - 1)
     }
 
     /** **********************************************************************
@@ -165,6 +185,19 @@
     public int treeSum(Tree tree)
     {
     	//TODO
+        int value = 0;
+        if(tree.getChildren() == 1)
+        {
+            value = tree.getValue();
+        }
+        else
+        {
+            for(int index = 0; index < tree.size(); ++index)
+            {
+                 value = value + tree.getChildren().get(index);   
+            }
+        }
+        return value;
     }
     
     /** **********************************************************************
